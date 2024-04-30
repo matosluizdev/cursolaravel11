@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Curso Laravel 11</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
 </head>
 <body>
-    <h1>Olá {{ $user->name}}</h1>
+    <div class="p-4">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white">Usuários</h1>
+    </div>
+
+
+    <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Nome
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        E-mail
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Ações
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($users as $user )
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{$user->name}}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{$user->email}}
+                    </td>
+                    <td class="px-6 py-4">
+                        -
+                    </td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="3">Nenhum Usuário Encontrado!</td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+        {{$users->links()}}
+    </div>
+
 </body>
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
