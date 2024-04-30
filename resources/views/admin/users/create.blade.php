@@ -1,6 +1,7 @@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+@extends('admin.layouts.app')
 
+@section('title', 'Cadastro')
+@section('content')
 <form class="max-w-sm mx-auto mt-10" method="POST" action="{{ route('users.store') }}">
     @csrf
     <h1 class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-gray-900 dark:text-white">Novo usuário</h1>
@@ -18,3 +19,5 @@
     </div>
     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cadastrar</button>
   </form>
+
+@endsection
