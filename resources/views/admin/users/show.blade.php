@@ -15,6 +15,9 @@
     <li>
         <span class="font-semibold text-gray-900 dark:text-white">E-mail: {{$user->email}}</span>
     </li>
+    @can('is-admin')
+
+    @endcan
     <li>
         <form class="mt-4" action="{{route('users.destroy', $user->id)}}" method="POST">
             @csrf
